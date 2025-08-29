@@ -1,3 +1,4 @@
+from pathlib import Path
 # pythonfile.py — Interactive Waste Management Dashboard (final tweaks)
 import streamlit as st
 import pandas as pd
@@ -12,7 +13,9 @@ from datetime import date
 st.set_page_config(page_title="Interactive Waste Management Dashboard", layout="wide")
 
 # ---------- CONFIG ----------
-CSV_PATH = r"C:\Users\meena\Downloads\kaggle\INTERNSHIP TASK 1\percent_to_numbers.csv"
+CSV_PATH = str(Path(__file__).parent / "percent_to_numbers.csv")
+
+
 META_COLS = [
     "City", "Community", "Community Status", "Pincode", "Type",
     "Inactive Registrations", "Active Registrations", "Lat", "Lon"
@@ -270,3 +273,4 @@ else:
 # (Optional quick peek)
 with st.expander("Data sample (filtered)"):
     st.dataframe(filtered.head(10), use_container_width=True)
+
